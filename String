@@ -1,7 +1,20 @@
-import csv
-print("okay")
-
-count = 0
-while (count < 5):
-    count += 1
-    print(count*"*")
+"""os library
+   os.path.basename("path/filename.txt") = It will return the filename of the path 
+   os.path.dirname("path/filename.txt") = It will return path
+   os.path.exists("path/filename.txt") = This function specifies whether the file is existing directory or not.
+   os.path.isdir("path.filename.txt") = This function specifies whether the path is existing directory or not.
+   os.path.isdile("path.filename.txt") = This function specifies whether the path is existing file or not. 
+   os.getcwd() = get current working directory
+   os.chdir(r"path you want to") = change current working directory
+   os.makedirs(r"path you want to") = Create any subfolders in the directory)
+"""
+import os
+import time
+full_path = os.path.join('D:\My Document\Documents','isk assessment_Orifice.pdf')
+try:
+    access_time = os.path.getatime(full_path)
+    print("Last access time since the epoch:", access_time)
+    localtime = time.ctime(access_time)
+    print("Local time:", localtime)
+except OSError:
+    print("path %s is not exist at all."% full_path)
